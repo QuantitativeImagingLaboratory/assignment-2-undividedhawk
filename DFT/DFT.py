@@ -1,6 +1,7 @@
 # For this part of the assignment, please implement your own code for all computations,
 # Do not use inbuilt functions like fft from either numpy, opencv or other libraries
-
+import cmath
+import numpy as np
 
 class DFT:
 
@@ -9,11 +10,19 @@ class DFT:
         takes as input:
         matrix: a 2d matrix
         returns a complex matrix representing fourier transform"""
+        n = len(matrix[0])
+        output = np.zeros((3,3), np.complex64)
+        for k in range(n):  # For each output element
+            for t in range(n):  # For each input element
+                s = complex(0)
+                angle = 2j * cmath.pi * t * k / n
+                s += matrix[k][t] * cmath.exp(-angle)
+                output[k][t] = s
+        return output
 
 
 
 
-        return matrix
 
     def inverse_transform(self, matrix):
         """Computes the inverse Fourier transform of the input matrix
