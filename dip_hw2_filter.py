@@ -87,7 +87,6 @@ def main():
 
     #Write output file
     output_dir = 'output/'
-
     output_image_name = output_dir+image_name+"_"+mask+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
     cv2.imwrite(output_image_name, output[0])
     output_image_name = output_dir + image_name+"_dft_" + mask + datetime.now().strftime("%m%d-%H%M%S") + ".jpg"
