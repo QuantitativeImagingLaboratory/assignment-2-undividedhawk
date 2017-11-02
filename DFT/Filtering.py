@@ -41,11 +41,11 @@ class Filtering:
         shape: the shape of the mask to be generated
         cutoff: the cutoff frequency of the ideal filter
         returns a ideal low pass mask"""
-        rows = shape[0]
-        columns = shape[1]
+        rows = shape
+        columns = shape
 
-        for x in rows:
-            for y in columns:
+        for x in range(rows):
+            for y in range(columns):
                 if np.sqrt((x ** 2 + y ** 2)) <= cutoff:
                     self.image[x, y] = 1
                 else:
@@ -156,25 +156,28 @@ class Filtering:
         Note: You do not have to do zero padding as discussed in class, the inbuilt functions takes care of that
         filtered image, magnitude of DFT, magnitude of filtered DFT: Make sure all images being returned have grey scale full contrast stretch and dtype=uint8 
         """
+
+        shape = self.image.shape[0]
         fftimage = np.fft.fft2(self.image)
         fftimageshift = np.fft.fftshift(fftimage)
-        maskedimage =  fftimageshift
-        fftshape = fftimage.shape[0]
-        fil = self.filter
+        print("DFT:")
+        print(fftimage)
+        print("DFT Shifted:")
+        print(fftimageshift)
 
-        for x in range(fftimage.shape[0]):
-            for y in range(fftimage.shape[1]):
-                maskedimage[x,y] = fftimageshift[x,y]*fil(fftshape,self.cutoff)
+        mask = self.filter(shape, 50)
+        maskedimage = np.zeros((shape,shape), np.complex64)
+        for x in range(shape):
+            for y in range(shape):
+                maskedimage[x,y] = mask[x,y] * fftimageshift[x,y]
         fftmaskshift = np.fft.ifftshift(maskedimage)
-        fftinverse = cv2.idft(fftmaskshift)
+        fftinverse = np.fft.ifft2(fftmaskshift)
+        print("mask")
+        print(mask)
+        print("masked image")
+        print(maskedimage)
+        print("fft inverse")
+        print(fftinverse)
+        return 0
 
-        idftmagnitude = cv2.magnitude(fftinverse[:,:,0],fftinverse[:,:,1])
-        dftmagnitude = cv2.magnitude(fftimage[:, :, 0], fftimage[:, :, 1])
-
-        print('dft magnitude')
-        print(dftmagnitude)
-        print('----------------')
-        print('filtered dft magnitude')
-        print(idftmagnitude)
-
-        return [fftinverse, dftmagnitude,idftmagnitude]
+        #return [fftinverse, dftmagnitude,idftmagnitude]
