@@ -41,17 +41,17 @@ class Filtering:
         shape: the shape of the mask to be generated
         cutoff: the cutoff frequency of the ideal filter
         returns a ideal low pass mask"""
-        rows = shape
-        columns = shape
-
-        for x in range(rows):
-            for y in range(columns):
-                if np.sqrt((x ** 2 + y ** 2)) <= cutoff:
-                    self.image[x, y] = 1
+        (rows, cols) = shape
+        mask = np.zeros(shape,np.uint8)
+        for u in range(rows):
+            for v in range (cols):
+                d = np.sqrt((u-rows/2)**2 + (v - cols/2)**2)
+                if d <= cutoff:
+                    mask[u,v] = 1
                 else:
-                    self.image[x, y] = 0
+                    mask[u,v] = 0
 
-        return self.image
+        return mask
 
     def get_ideal_high_pass_filter(self, shape, cutoff):
         """Computes a Ideal high pass mask
@@ -61,15 +61,17 @@ class Filtering:
         returns a ideal high pass mask"""
 
         # Hint: May be one can use the low pass filter function to get a high pass mask
-        b = self.get_ideal_high_pass_filter(shape, cutoff)
+        (rows,cols) = shape
+        b = self.get_ideal_low_pass_filter(shape, cutoff)
+        mask = np.zeros(shape, np.uint8)
         for x in shape[0]:
             for y in shape[1]:
                 if b[x, y] == 0:
-                    self.image[x, y] == 1
+                    mask[x, y] == 1
                 else:
-                    self.image[x, y] == 0
+                    mask[x, y] == 0
 
-        return self.image
+        return mask
 
     def get_butterworth_low_pass_filter(self, shape, cutoff, order):
         """Computes a butterworth low pass mask
@@ -157,27 +159,20 @@ class Filtering:
         filtered image, magnitude of DFT, magnitude of filtered DFT: Make sure all images being returned have grey scale full contrast stretch and dtype=uint8 
         """
 
-        shape = self.image.shape[0]
+        shape = self.image.shape
         fftimage = np.fft.fft2(self.image)
         fftimageshift = np.fft.fftshift(fftimage)
-        print("DFT:")
-        print(fftimage)
-        print("DFT Shifted:")
-        print(fftimageshift)
-
+        magnitude_spectrum = 20*np.log(np.abs(fftimageshift))
         mask = self.filter(shape, 50)
-        maskedimage = np.zeros((shape,shape), np.complex64)
-        for x in range(shape):
-            for y in range(shape):
+        maskedimage = np.zeros(shape, np.complex64)
+        for x in range(shape[0]):
+            for y in range(shape[1]):
                 maskedimage[x,y] = mask[x,y] * fftimageshift[x,y]
         fftmaskshift = np.fft.ifftshift(maskedimage)
         fftinverse = np.fft.ifft2(fftmaskshift)
-        print("mask")
-        print(mask)
-        print("masked image")
-        print(maskedimage)
-        print("fft inverse")
-        print(fftinverse)
-        return 0
+        img_back = np.abs(fftinverse)
+        disp_maskedimage = 20*np.log(np.abs(maskedimage))
 
-        #return [fftinverse, dftmagnitude,idftmagnitude]
+        return [img_back, magnitude_spectrum, disp_maskedimage]
+
+
