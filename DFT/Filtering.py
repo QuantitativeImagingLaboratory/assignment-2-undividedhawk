@@ -64,8 +64,8 @@ class Filtering:
         (rows,cols) = shape
         b = self.get_ideal_low_pass_filter(shape, cutoff)
         mask = np.zeros(shape, np.uint8)
-        for x in shape[0]:
-            for y in shape[1]:
+        for x in range(shape[0]):
+            for y in range(shape[1]):
                 if b[x, y] == 0:
                     mask[x, y] == 1
                 else:
@@ -80,10 +80,12 @@ class Filtering:
         cutoff: the cutoff frequency of the butterworth filter
         order: the order of the butterworth filter
         returns a butterworth low pass mask"""
-        for x in shape[0]:
-            for y in shape[1]:
-                return 1 / (1 + (self[x, y] / cutoff) ** (2 * order))
-        return 0
+        mask = np.zeros(shape, np.uint8)
+        for x in range(shape[0]):
+            for y in range(shape[1]):
+                d = np.sqrt((x - (shape[0] / 2)) ** 2 + (y - (shape[1] / 2)) ** 2)
+                mask[x,y] = 1 / (1 + (d / cutoff) ** (2 * order))
+        return mask
 
     def get_butterworth_high_pass_filter(self, shape, cutoff, order):
         """Computes a butterworth high pass mask
@@ -94,10 +96,12 @@ class Filtering:
         returns a butterworth high pass mask"""
 
         # Hint: May be one can use the low pass filter function to get a high pass mask
-
-        return self.get_butterworth_low_pass_filter(cutoff, shape, order)
-
-        return 0
+        mask = np.zeros(shape, np.uint8)
+        for x in range(shape[0]):
+            for y in range(shape[1]):
+                d = np.sqrt((x - (shape[0] / 2)) ** 2 + (y - (shape[1] / 2)) ** 2)
+                mask[x, y] = 1 / (1 + (cutoff / d) ** (2 * order))
+        return mask
 
     def get_gaussian_low_pass_filter(self, shape, cutoff):
         """Computes a gaussian low pass mask
@@ -105,12 +109,14 @@ class Filtering:
         shape: the shape of the mask to be generated
         cutoff: the cutoff frequency of the gaussian filter (sigma)
         returns a gaussian low pass mask"""
+        mask = np.zeros(shape, np.uint8)
+        for x in range(shape[0]):
+            for y in range(shape[1]):
+                d = np.sqrt((x - (shape[0] / 2)) ** 2 + (y - (shape[1] / 2)) ** 2)
 
-        for x in shape[0]:
-            for y in shape[1]:
-                return c.exp(self[x, y] ** 2 / (2 * (cutoff ** 2)))
+                mask[x,y] = c.exp(-d ** 2 / (2 * (cutoff ** 2)))
 
-        return 0
+        return mask
 
     def get_gaussian_high_pass_filter(self, shape, cutoff):
         """Computes a gaussian high pass mask
@@ -120,9 +126,13 @@ class Filtering:
         returns a gaussian high pass mask"""
 
         # Hint: May be one can use the low pass filter function to get a high pass mask
-        self.get_gaussian_low_pass_filter(cutoff, shape)
+        b = self.get_gaussian_low_pass_filter(cutoff, shape)
+        mask = np.zeros(shape, np.uint8)
+        for x in range(shape[0]):
+            for y in range(shape[1]):
+                mask[x,y] = 1-b[x,y]
 
-        return 0
+        return mask
 
     def post_process_image(self, image):
         """Post process the image to create a full contrast stretch of the image
@@ -160,10 +170,13 @@ class Filtering:
         """
 
         shape = self.image.shape
+        cutoff=self.cutoff
+        order = self.order
+
         fftimage = np.fft.fft2(self.image)
         fftimageshift = np.fft.fftshift(fftimage)
         magnitude_spectrum = 20*np.log(np.abs(fftimageshift))
-        mask = self.filter(shape, 50)
+        mask = self.filter(shape, cutoff, order)
         maskedimage = np.zeros(shape, np.complex64)
         for x in range(shape[0]):
             for y in range(shape[1]):

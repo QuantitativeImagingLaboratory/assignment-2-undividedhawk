@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90334b9d-94a3-4fe0-a45b-569b568543ff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DFT/DFT.py" afterPath="$PROJECT_DIR$/DFT/DFT.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DFT/Filtering.py" afterPath="$PROJECT_DIR$/DFT/Filtering.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dip_hw2_filter.py" afterPath="$PROJECT_DIR$/dip_hw2_filter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dip_hw2_dft.py" afterPath="$PROJECT_DIR$/dip_hw2_dft.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,9 +18,11 @@
       <file leaf-file-name="DFT.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DFT/DFT.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="122" column="42" lean-forward="false" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
-              <folding />
+            <state relative-caret-position="1547">
+              <caret line="91" column="89" lean-forward="true" selection-start-line="91" selection-start-column="89" selection-end-line="91" selection-end-column="89" />
+              <folding>
+                <element signature="e#173#190#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -27,8 +30,8 @@
       <file leaf-file-name="Filtering.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DFT/Filtering.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="73" column="19" lean-forward="false" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+            <state relative-caret-position="1972">
+              <caret line="116" column="44" lean-forward="false" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
               <folding>
                 <element signature="e#166#176#0" expanded="true" />
               </folding>
@@ -39,7 +42,7 @@
       <file leaf-file-name="dip_hw2_filter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dip_hw2_filter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="1581">
               <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding />
             </state>
@@ -49,8 +52,8 @@
       <file leaf-file-name="dip_hw2_dft.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dip_hw2_dft.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state relative-caret-position="1037">
+              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="e#209#219#0" expanded="true" />
               </folding>
@@ -66,14 +69,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dip_hw2_dft.py" />
-        <option value="$PROJECT_DIR$/DFT/DFT.py" />
         <option value="$PROJECT_DIR$/dip_hw2_filter.py" />
+        <option value="$PROJECT_DIR$/DFT/DFT.py" />
+        <option value="$PROJECT_DIR$/dip_hw2_dft.py" />
         <option value="$PROJECT_DIR$/DFT/Filtering.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -129,7 +132,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dip_hw2_filter">
+  <component name="RunManager" selected="Python.dip_hw2_dft">
     <configuration name="DFT" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -194,7 +197,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="assignment-2-undividedhawk" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dip_hw2_filter.py" />
-      <option name="PARAMETERS" value="-i Lenna.png -m ideal_l" />
+      <option name="PARAMETERS" value="-i Lenna.png -m butterworth_l" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -206,8 +209,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.dip_hw2_filter" />
-        <item index="1" class="java.lang.String" itemvalue="Python.dip_hw2_dft" />
+        <item index="0" class="java.lang.String" itemvalue="Python.dip_hw2_dft" />
+        <item index="1" class="java.lang.String" itemvalue="Python.dip_hw2_filter" />
         <item index="2" class="java.lang.String" itemvalue="Python.DFT" />
         <item index="3" class="java.lang.String" itemvalue="Python.compressTest" />
       </list>
@@ -227,15 +230,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="676" y="0" width="697" height="735" extended-state="1" />
-    <editor active="true" />
+    <frame x="676" y="0" width="697" height="735" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16593245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -262,7 +264,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1989">
           <caret line="122" column="42" lean-forward="false" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="e#173#190#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -298,7 +302,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#173#190#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -316,7 +322,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#173#190#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -391,10 +399,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dip_hw2_filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dip_hw2_dft.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state relative-caret-position="1037">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
             <element signature="e#209#219#0" expanded="true" />
           </folding>
@@ -403,24 +419,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DFT/DFT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="122" column="42" lean-forward="false" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dip_hw2_filter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1547">
+          <caret line="91" column="89" lean-forward="true" selection-start-line="91" selection-start-column="89" selection-end-line="91" selection-end-column="89" />
+          <folding>
+            <element signature="e#173#190#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DFT/Filtering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="73" column="19" lean-forward="false" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+        <state relative-caret-position="1972">
+          <caret line="116" column="44" lean-forward="false" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
           <folding>
             <element signature="e#166#176#0" expanded="true" />
           </folding>

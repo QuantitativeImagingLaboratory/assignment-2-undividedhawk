@@ -3,9 +3,7 @@
 import cmath as c
 import math
 import numpy as np
-from numpy.random import rand
 
-import cv2
 
 
 class DFT:
